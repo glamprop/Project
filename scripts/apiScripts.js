@@ -134,7 +134,7 @@ function getOutput(item, index) {
     '</div>' +
     '<div class="list_right">' +
 	'<h3><a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/'+item.id.videoId+'">'+item.snippet.title+'</a></h3>' +
-    '<small>By <span class="cTitle">'+item.snippet.channelTitle+'</span> on '+item.snippet.publishedAt+'</small>' +
+    '<small>By <span class="cTitle">'+item.snippet.channelTitle+'</span> on '+getPublishedDate(item.snippet.publishedAt)+'</small>' +
 	'</div>' +
     '</li>' +
     '<div class="clearfix"></div>' +
@@ -153,16 +153,15 @@ function moreVideoInfo(vidid, index){
 		function(data){
 			$.each(data.items, function(i, item) {
 				// Get Output
-				var output = '<p>duration: '+item.contentDetails.duration+
-				'&nbsp;Views: '+item.statistics.viewCount+
-				'<br />Likes: '+item.statistics.likeCount+
-				'&nbsp;Dislikes: '+item.statistics.dislikeCount+
-				'&nbsp;Comments: '+item.statistics.commentCount+ '</p>'+
+				var output = '<p>duration: '+convertISO8601ToSeconds(item.contentDetails.duration)+
+				'&nbsp;Views: '+addDotSeparator(item.statistics.viewCount)+
+				'<br />Likes: '+addDotSeparator(item.statistics.likeCount)+
+				'&nbsp;Dislikes: '+addDotSeparator(item.statistics.dislikeCount)+
+				'&nbsp;Comments: '+addDotSeparator(item.statistics.commentCount)+ '</p>'+
 				'<span class="inline descriptionP">Video description: '+item.snippet.description+'&nbsp;</span>'+
 				'<a class="more_less move_up" onclick="showMoreLess(this)">More</a>';
 				$('#search_results li')[index].children[1].innerHTML+=output;
 			});
-
 		}
 	);
 
@@ -184,6 +183,7 @@ function getButtons(prevPageToken, nextPageToken) {
 	}
 	return btnoutput;
 }
+
 // Get Radio Button Value
 function getRadioVal(form, name) {
     var val;
@@ -199,7 +199,37 @@ function getRadioVal(form, name) {
     }
     return val;
 }
+
 // Get Video Id
 function getVidId(item){
 	return item.id.videoId;
+}
+
+// Add dot separator to numeric values
+function addDotSeparator(number) {
+	if(number>999)
+		return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+	else
+		return number;
+}
+
+// Get ISO8601 Date
+function getPublishedDate(publishedAt){
+	var temp = new Date(Date.parse(publishedAt));
+	return temp.toString();
+}
+
+// Convert ISO 8601 to Seconds
+function convertISO8601ToSeconds(input) {
+	var reptms = /^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/;
+	var hours = 0, minutes = 0, seconds = 0, totalseconds;
+
+	if (reptms.test(input)) {
+		var matches = reptms.exec(input);
+		if (matches[1]) hours = Number(matches[1]);
+		if (matches[2]) minutes = Number(matches[2]);
+		if (matches[3]) seconds = Number(matches[3]);
+		totalseconds = hours * 3600  + minutes * 60 + seconds;
+	}
+	return (hours+"hr "+minutes+"min "+seconds+"sec");
 }
