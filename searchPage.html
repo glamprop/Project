@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transition//EN" "http://wwww.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<title>OurTube</title>
+
+		<!--css-->
+		<link rel="stylesheet" href="styles/searchPageCSS.css">
+		<link rel="stylesheet" href="styles/jquery.fancybox.css">
+
+		<!--javascript-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/apiScripts.js"></script>
+
+		<!--fancybox initialize-->
+		<script type="text/javascript" src="scripts/jquery.fancybox.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("[data-fancybox]").fancybox();
+			});
+		 </script>
+	</head>
+
+	<body>
+		<div id="main_container">
+			<header>
+				<h1>Our<span>Tube</span></h1>
+				<p>Search all YouTube videos</p>
+			</header>
+
+			<section>
+				<form id="search_form" name="search_form" onsubmit="return search()">
+					<div class="searchBar_container">
+						<input type="search" id="query" class="search_field" placeholder="Search YouTube...">
+						<input type="submit" name="search_btn" id="search_btn" value="">
+					</div>
+					</br>
+				</form>
+
+				<h1>Search Options: </h1>
+				<!--Search Options Radio Buttons-->
+				<form class="searchForm" id="searchForm">
+					<span style="font-size:17px;">Order By: </span>
+					<input type="radio" name="searchOption" value="relevance" checked><label> Default</label>
+					<input type="radio" name="searchOption" value="date"><label> Date</label>
+					<input type="radio" name="searchOption" value="rating"><label> Rating</label>
+					<input type="radio" name="searchOption" value="viewCount"><label> Views</label>
+				</form>
+				<!--Video Length Radio Buttons-->
+				<form class="videoLengthForm" id="videoLengthForm">
+					<span style="font-size:17px;">Video Length: </span>
+					<input type="radio" name="videoLengthOption" value="any" checked><label> Any</label>
+					<input type="radio" name="videoLengthOption" value="short"><label> Short (< 4 minutes)</label>
+					<input type="radio" name="videoLengthOption" value="medium"><label> Medium (< 20 minutes)</label>
+					<input type="radio" name="videoLengthOption" value="long"><label> Long (> 20 minutes)</label>
+				</form>
+				<!--Max Results Dropdownlist-->
+				<span style="font-size:17px;">Number of Results: </span>
+				<select id="resultsList">
+					<option value="5" selected>5</option>
+					<option value="10">10</option>
+					<option value="25">25</option>
+				</select>
+
+				<ul id="search_results"></ul>
+				<div id="buttons_container"></div>
+			</section>
+
+			<footer>
+				<p>Copyright 2017</p>
+			</footer>
+		</div>
+	</body>
+</html>
