@@ -8,11 +8,13 @@
 		<!--css-->
 		<link rel="stylesheet" href="styles/searchPageCSS.css">
 		<link rel="stylesheet" href="styles/jquery.fancybox.css">
+		<link rel="stylesheet" href="styles/bootstrap/css/bootstrap.min.css">
 
 		<!--javascript-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="styles/bootstrap/js/bootstrap.min.js"></script>
+		<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/popper.min.js"></script>-->
 		<script type="text/javascript" src="scripts/apiScripts.js"></script>
-
 		<!--fancybox initialize-->
 		<script type="text/javascript" src="scripts/jquery.fancybox.js"></script>
 		<script type="text/javascript">
@@ -23,53 +25,68 @@
 	</head>
 
 	<body>
-		<div id="main_container">
+		<div class="text-center">
 			<header>
 				<h1>Our<span>Tube</span></h1>
 				<p>Search all YouTube videos</p>
+				</div>
 			</header>
-
+			
 			<section>
 				<form id="search_form" name="search_form" onsubmit="return search()">
 					<div class="searchBar_container">
-						<input type="search" id="query" class="search_field" placeholder="Search YouTube...">
-						<input type="submit" name="search_btn" id="search_btn" value="">
+						<input type="search" id="query" class="search_field" placeholder="Search YouTube..." />
+						<input type="submit" name="search_btn" id="search_btn" value="" />
 					</div>
 					</br>
 				</form>
 
-				<h1>Search Options: </h1>
-				<!--Search Options Radio Buttons-->
-				<form class="searchForm" id="searchForm">
-					<span style="font-size:17px;">Order By: </span>
-					<input type="radio" name="searchOption" value="relevance" checked><label> Default</label>
-					<input type="radio" name="searchOption" value="date"><label> Date</label>
-					<input type="radio" name="searchOption" value="rating"><label> Rating</label>
-					<input type="radio" name="searchOption" value="viewCount"><label> Views</label>
-				</form>
-				<!--Video Length Radio Buttons-->
-				<form class="videoLengthForm" id="videoLengthForm">
-					<span style="font-size:17px;">Video Length: </span>
-					<input type="radio" name="videoLengthOption" value="any" checked><label> Any</label>
-					<input type="radio" name="videoLengthOption" value="short"><label> Short (< 4 minutes)</label>
-					<input type="radio" name="videoLengthOption" value="medium"><label> Medium (< 20 minutes)</label>
-					<input type="radio" name="videoLengthOption" value="long"><label> Long (> 20 minutes)</label>
-				</form>
-				<!--Max Results Dropdownlist-->
-				<span style="font-size:17px;">Number of Results: </span>
-				<select id="resultsList">
-					<option value="5" selected>5</option>
-					<option value="10">10</option>
-					<option value="25">25</option>
-				</select>
+				<div id="main_container" class="row"><!-- class="well well-lg">-->
+					<h2>Search Options: </h2>
+					<!--Search Options Radio Buttons-->
+					<!--<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 searchForm" id="searchForm">-->
+					<div id="searchForm">
+						<span class="label-span">Order By: </span>
+						<div class="btn-group" id="divOrderBy">
+						  <button type="button" class="btn btn-primary" data-value="relevance">Relevance</button>
+						  <button type="button" class="btn btn-primary" data-value="date">Date</button>
+						  <button type="button" class="btn btn-primary" data-value="rating">Rating</button>
+						  <button type="button" class="btn btn-primary" data-value="viewCount">Views</button>
+						</div>
+					</div>
+					<!--Video Length Radio Buttons-->
+					<!--<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 videoLengthForm" id="videoLengthForm">-->
+					<div id="videoLengthForm">
+						<span class="label-span">Video Length: </span>
+						<div class="btn-group" id="divVideoLength">
+						  <button type="button" class="btn btn-primary" data-value="any">Any</button>
+						  <button type="button" class="btn btn-primary" data-value="short">Short</button>
+						  <button type="button" class="btn btn-primary" data-value="medium">Medium</button>
+						  <button type="button" class="btn btn-primary" data-value="long">Long</button>
+						</div>						
+					</div>
+					<!--Max Results Dropdownlist-->
+					<!--<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">-->
+					<div id="resultsForm">
+						<span class="label-span">Number of Results: </span>
+						<select id="resultsList">
+							<option value="5" selected>5</option>
+							<option value="10">10</option>
+							<option value="25">25</option>
+						</select>
+					</div>
 
-				<ul id="search_results"></ul>
-				<div id="buttons_container"></div>
+					<ul id="search_results"></ul>
+					<div id="buttons_container"></div>
+				</div>
 			</section>
 
 			<footer>
+			<!--<div class="well well-sm">-->
 				<p>Copyright 2017</p>
+			<!--</div>-->
 			</footer>
-		</div>
+		  <!--</div>-->
+		  </div>
 	</body>
 </html>
