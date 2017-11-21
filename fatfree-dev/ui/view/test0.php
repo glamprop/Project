@@ -1,1 +1,0 @@
-<?php echo $test . '-'; require 'test0_child.php'; ?>
