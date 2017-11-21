@@ -169,7 +169,18 @@ function moreVideoInfo(vidid, index){
 }
 
 function showMoreLess(elem){	
-
+	if(elem.previousSibling.className == 'inline descriptionP'){
+		$('a.more_less').not('.move_up').html('More').addClass('move_up');
+		$('.expanded').addClass('inline descriptionP').removeClass('expanded');
+		elem.previousSibling.className='expanded';
+		elem.innerHTML='Less';
+		elem.className='more_less';
+	}else{		
+		$('.descriptionP').removeClass('expanded');
+		elem.previousSibling.className='inline descriptionP';
+		elem.innerHTML='More';
+		elem.className='more_less move_up';
+	}
 }
 
 // Build the Buttons
