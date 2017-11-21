@@ -186,7 +186,7 @@ function getButtons(prevPageToken, nextPageToken) {
 
 // Get Radio Button Value
 function getRadioVal(form, name) {
-    var val;
+     /* var val;
     // get list of radio buttons with specified name
     var radios = form.elements[name];
 
@@ -198,6 +198,12 @@ function getRadioVal(form, name) {
         }
     }
     return val;
+*/
+    
+    if(name==='searchOption')
+        return $($('#divOrderBy > button.active')[0]).attr('data-value');
+    else if(name === 'videoLengthOption')
+        return $($('#divVideoLength > button.active')[0]).attr('data-value');
 }
 
 // Get Video Id
