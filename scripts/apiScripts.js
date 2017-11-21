@@ -148,6 +148,7 @@ function moreVideoInfo(vidid, index){
 		"https://www.googleapis.com/youtube/v3/videos",{
 			key: 'AIzaSyBAN-71jVHKbUzBIuoQS_OVMb9mLctpEUU',
 				id: vidid,
+				fields:'items(contentDetails(duration),statistics,snippet(description))',
 				part: 'contentDetails,statistics,snippet'
 		},
 		function(data){
