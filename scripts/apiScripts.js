@@ -128,7 +128,10 @@ function changePage(page){
 // Build Output
 function getOutput(item, index) {
 	// Build Output String
-	var output = '<li>' +
+	var altRowClass = 'alt-row';//(index % 2 == 0) ? 'alt-row' : '';
+	var output = '<li class="' +
+	altRowClass + 
+	'">' +
 	'<div class="list_left">' +
 	'<div class="in-image-label">' + 
 	'WATCHED' +
@@ -142,6 +145,7 @@ function getOutput(item, index) {
     '</li>' +
     '<div class="clearfix"></div>' +
     '';
+	console.log(output);
 	$('#search_results').append(output);
 	moreVideoInfo(item.id.videoId, index);
 }
@@ -159,9 +163,9 @@ function moreVideoInfo(vidid, index){
 				// Get Output
 				var output = '<p>duration: '+convertISO8601ToSeconds(item.contentDetails.duration)+
 				'&nbsp;Views: '+addDotSeparator(item.statistics.viewCount ? item.statistics.viewCount : ' ') +
-				'<br />Likes: '+addDotSeparator(item.statistics.likeCount ? item.statistics.likeCount : ' ') +
-				'&nbsp;Dislikes: '+addDotSeparator(item.statistics.dislikeCount ? item.statistics.dislikeCount : ' ') +
-				'&nbsp;Comments: '+addDotSeparator(item.statistics.commentCount ? item.statistics.commentCount : ' ') + '</p>'+
+				'<br /><img src="img/like.png" width="20" height="20" /> '+addDotSeparator(item.statistics.likeCount ? item.statistics.likeCount : ' ') +
+				'&nbsp;<img src="img/dislike.png" width="18" height="18" /> '+addDotSeparator(item.statistics.dislikeCount ? item.statistics.dislikeCount : ' ') +
+				'&nbsp;<img src="img/comment.jpg" width="16" height="16" /> '+addDotSeparator(item.statistics.commentCount ? item.statistics.commentCount : ' ') + '</p>'+
 				'<span class="inline descriptionP">Video description: '+item.snippet.description+'&nbsp;</span>' +
 				'<a class="more_less move_up" onclick="showMoreLess(this)">More</a>';
 				$('#search_results li')[index].children[1].innerHTML+=output;
