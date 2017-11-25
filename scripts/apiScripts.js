@@ -158,11 +158,11 @@ function moreVideoInfo(vidid, index){
 			$.each(data.items, function(i, item) {
 				// Get Output
 				var output = '<p>duration: '+convertISO8601ToSeconds(item.contentDetails.duration)+
-				'&nbsp;Views: '+addDotSeparator(item.statistics.viewCount)+
-				'<br />Likes: '+addDotSeparator(item.statistics.likeCount)+
-				'&nbsp;Dislikes: '+addDotSeparator(item.statistics.dislikeCount)+
-				'&nbsp;Comments: '+addDotSeparator(item.statistics.commentCount)+ '</p>'+
-				'<span class="inline descriptionP">Video description: '+item.snippet.description+'&nbsp;</span>'+
+				'&nbsp;Views: '+addDotSeparator(item.statistics.viewCount ? item.statistics.viewCount : ' ') +
+				'<br />Likes: '+addDotSeparator(item.statistics.likeCount ? item.statistics.likeCount : ' ') +
+				'&nbsp;Dislikes: '+addDotSeparator(item.statistics.dislikeCount ? item.statistics.dislikeCount : ' ') +
+				'&nbsp;Comments: '+addDotSeparator(item.statistics.commentCount ? item.statistics.commentCount : ' ') + '</p>'+
+				'<span class="inline descriptionP">Video description: '+item.snippet.description+'&nbsp;</span>' +
 				'<a class="more_less move_up" onclick="showMoreLess(this)">More</a>';
 				$('#search_results li')[index].children[1].innerHTML+=output;
 			});
