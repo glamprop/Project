@@ -148,6 +148,7 @@ footer {
 }
 
 .list_left {
+	position: relative;
 	float: left;
 	width: 20%;
 }
@@ -178,4 +179,16 @@ footer {
 	border-radius: 5px;
 	margin: 10px;
 	cursor: pointer;
+}
+
+.in-image-label {
+	position: absolute;
+    top: 38%;
+    right: 18%;
+	color: lightgray;
+	-ms-transform: rotate(-35deg);
+	-webkit-transform: rotate(-35deg);
+	transform: rotate(-35deg);
+	font-size: xx-large;
+	font-weight: bold;
 }

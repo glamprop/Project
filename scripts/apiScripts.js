@@ -130,8 +130,11 @@ function getOutput(item, index) {
 	// Build Output String
 	var output = '<li>' +
 	'<div class="list_left">' +
-	'<a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/'+item.id.videoId+'"><img src="' + item.snippet.thumbnails.high.url + '"></a>' +
+	'<div class="in-image-label">' + 
+	'WATCHED' +
     '</div>' +
+	'<a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/'+item.id.videoId+'"><img src="' + item.snippet.thumbnails.high.url + '"></a>' +
+	'</div>' +
     '<div class="list_right">' +
 	'<h3><a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/'+item.id.videoId+'">'+item.snippet.title+'</a></h3>' +
     '<small>By <span class="cTitle">'+item.snippet.channelTitle+'</span> on '+getPublishedDate(item.snippet.publishedAt)+'</small>' +
