@@ -26,7 +26,7 @@ $(function() {
 				width: '45%'
 			}, 400, function() {});
 			$(icon).animate({
-				right: '360px'
+				right: '55%'
 			}, 400, function() {});
 		}
 	});
