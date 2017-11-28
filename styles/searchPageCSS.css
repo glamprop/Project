@@ -18,7 +18,7 @@ select {
 
 #main_container {	
 	/*width: 100%;*/
-	/*text-align: center;*/
+	text-align: center;
 	/*background: white;
 	margin: auto;*/
 }
@@ -33,7 +33,8 @@ header {
 	background: -webkit-linear-gradient(#f0f0f0, #fefefe); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#f0f0f0, #fefefe); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(#f0f0f0, #fefefe); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#e0e0e0, #fefefe); /* Standard syntax (must be last) */
+    /*background: linear-gradient(#e0e0e0, #fefefe); /* Standard syntax (must be last) */
+	background: linear-gradient(#111111, #ffffff);
 }
 
 header h1 {
@@ -74,11 +75,10 @@ footer {
     background: -moz-linear-gradient(#ffffff, #f3f3f3); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#ffffff, #d0d0ff); /* Standard syntax (must be last) */
 	text-align: center;
-	position: fixed;
+	/*position: absolute;
 	bottom: 0;
-	/* And if you want the div to be full-width: */
 	left: 0;
-	right: 0;
+	right: 0;*/
 }
 
 #search_form {
@@ -89,7 +89,7 @@ footer {
 .searchBar_container {
 	display: block;
 	position: relative;
-	width: 90%;
+	/*width: 90%;*/
 	margin: 0 auto;
 }
 
@@ -144,7 +144,7 @@ footer {
 	margin-left: 10px;
 }
 
-.descriptionP {
+.desc-par {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	width: 500px;
@@ -155,30 +155,30 @@ footer {
 	display: inline-block;
 }
 
-.more_less {
+.more-less {
 	color: blue;
 	text-decoration: underline;
 }
 
-.move_up {
+.move-up {
 	position: relative;
 	top: -7px;
 }
 
-.list_left {
+.list-left {
 	position: relative;
 	float: left;
 	width: 20%;
 	left: 10px;
 }
 
-.list_left img {
+.list-left img {
 	width: 100%;
 	padding: 3px;
 	border: solid #ccc 1px;
 }
 
-.list_right {
+.list-right {
 	float: right;
 	width: 78%;
 }
