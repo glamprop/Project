@@ -1,9 +1,44 @@
+@font-face {
+    font-family: Circus;
+    src: url(../fonts/Circus.ttf);
+}
+
+@font-face {
+    font-family: RnB;
+    src: url(../fonts/Ribbons-and-banners.ttf);
+}
+
+@font-face {
+    font-family: ToyBlocks;
+    src: url(../fonts/K26ToyBlocks123.ttf);
+}
+
+@font-face {
+    font-family: PalmBeach;
+    src: url(../fonts/PalmBeach.ttf);
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
 	font-family: Patua One, san-serif;
 	line-height: 1.6em;
 	color: #666;
 	/*background: #e1e1e1 url(../img/creampaper.png);*/
-	font-size: 14px;
+	font-size: 14px; 
+	position: relative;
+	margin: 0;
+	padding-bottom: 6rem;
+	min-height: 100%;  
 }
 
 a {
@@ -38,6 +73,8 @@ header {
 }
 
 header h1 {
+	font-size: 80px;
+	font-family: ToyBlocks;
 	color: #000;
 	margin-bottom: 5px;
 }
@@ -46,10 +83,14 @@ header span {
 	color: #dd2826;
 }
 
-/*.page-header h1 {
-	color: #000;
-	margin-bottom: 5px;
-}*/
+.red-font {
+	color: red;
+}
+
+.rnb-black {
+	font-family: RnB;
+	color: black;
+}
 
 .page-header span {
 	color: #dd2826;
@@ -68,17 +109,22 @@ section {
 }
 
 footer {
-	padding: 20px;
+	/*padding: 20px;*/
 	/*background: #f4f4ff;*/
-	background: -webkit-linear-gradient(#ffffff, #f3f3f3); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#ffffff, #f3f3f3); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#ffffff, #f3f3f3); /* For Firefox 3.6 to 15 */
+	background: -webkit-linear-gradient(#ffffff, #d0d0ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#ffffff, #d0d0ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#ffffff, #d0d0ff); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#ffffff, #d0d0ff); /* Standard syntax (must be last) */
 	text-align: center;
 	/*position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;*/
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
 }
 
 #search_form {

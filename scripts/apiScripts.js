@@ -163,15 +163,6 @@ function renderButtons(q, prevPageToken, nextPageToken) {
 	$('#buttons_container').append(btnOutput);
 }
 
-function changeVideoLengthOption(selectedAnchor) {
-	var a = $(selectedAnchor);
-	$.each(a.parent().siblings(), function(k, v) {
-		$(v).removeClass('active');
-	});
-	a.parent().addClass('active');
-	a.parent().parent().prev().html('Video length: ' + a.text() + ' <span class="caret"></span>');
-}
-
 function changeSortingOption(selectedAnchor) {
 	var a = $(selectedAnchor);
 	$.each(a.parent().siblings(), function(k, v) {
@@ -179,7 +170,19 @@ function changeSortingOption(selectedAnchor) {
 	});
 	a.parent().addClass('active');
 	a.parent().parent().prev().html('Sort by: ' + a.text() + ' <span class="caret"></span>');
+	return false;
 }
+
+function changeVideoLengthOption(selectedAnchor) {
+	var a = $(selectedAnchor);
+	$.each(a.parent().siblings(), function(k, v) {
+		$(v).removeClass('active');
+	});
+	a.parent().addClass('active');
+	a.parent().parent().prev().html('Video length: ' + a.text() + ' <span class="caret"></span>');
+	return false;
+}
+
 function changeResultsNumberOption(selectedAnchor) {
 	var a = $(selectedAnchor);
 	$.each(a.parent().siblings(), function(k, v) {
@@ -187,4 +190,5 @@ function changeResultsNumberOption(selectedAnchor) {
 	});
 	a.parent().addClass('active');
 	a.parent().parent().prev().html('Number of results: ' + a.text() + ' <span class="caret"></span>');
+	return false;
 }

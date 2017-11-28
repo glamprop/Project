@@ -25,7 +25,7 @@
 	<body>
 		<div class="text-center">
 			<header>
-				<h1>~ Our<span>Tube</span> ~ YouTube Search</h1>
+				<h1>Our<span class="red-font">Tube</span> <span class="rnb-black">~ YouTube Search</span></h1>
 				<!--<p>Search all YouTube videos</p>-->
 			</header>
 		</div>	
@@ -36,30 +36,30 @@
 						<button style="width: 180px;" id="sort-by" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by: Relevance
 						<span class="caret"></span></button>
 						<ul id="sort-by-list" class="dropdown-menu" style="width: 178px;">
-							<li class="active"><a href="#" onclick="changeSortingOption(this);">Relevance</a></li>
-							<li><a href="#" onclick="changeSortingOption(this);">Date</a></li>
-							<li><a href="#" onclick="changeSortingOption(this);">Rating</a></li>
-							<li><a href="#" onclick="changeSortingOption(this);">Views</a></li>
+							<li class="active"><a href="#" onclick="return changeSortingOption(this);">Relevance</a></li>
+							<li><a href="#" onclick="return changeSortingOption(this);">Date</a></li>
+							<li><a href="#" onclick="return changeSortingOption(this);">Rating</a></li>
+							<li><a href="#" onclick="return changeSortingOption(this);">Views</a></li>
 						</ul>
 					</div>
 					<div class="dropdown" style="display: inline;">
 						<button style="width: 180px;" id="video-length" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Video length: Any
 						<span class="caret"></span></button>
 						<ul id="video-length-list" class="dropdown-menu" style="width: 178px;">
-							<li class="active"><a href="#" onclick="changeVideoLengthOption(this);">Any</a></li>
-							<li><a href="#" onclick="changeVideoLengthOption(this);">Short</a></li>
-							<li><a href="#" onclick="changeVideoLengthOption(this);">Medium</a></li>
-							<li><a href="#" onclick="changeVideoLengthOption(this);">Long</a></li>
+							<li class="active"><a href="#" onclick="return changeVideoLengthOption(this);">Any</a></li>
+							<li><a href="#" onclick="return changeVideoLengthOption(this);">Short</a></li>
+							<li><a href="#" onclick="return changeVideoLengthOption(this);">Medium</a></li>
+							<li><a href="#" onclick="return changeVideoLengthOption(this);">Long</a></li>
 						</ul>
 					</div>
 					<div class="dropdown" style="display: inline;">
 						<button style="width: 180px;" id="results-count" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Number of results: 5
 						<span class="caret"></span></button>
 						<ul id="max-results-list" class="dropdown-menu" style="width: 178px;">
-							<li class="active"><a href="#" onclick="changeResultsNumberOption(this);">5</a></li>
-							<li><a href="#" onclick="changeResultsNumberOption(this);">10</a></li>
-							<li><a href="#" onclick="changeResultsNumberOption(this);">15</a></li>
-							<li><a href="#" onclick="changeResultsNumberOption(this);">25</a></li>
+							<li class="active"><a href="#" onclick="return changeResultsNumberOption(this);">5</a></li>
+							<li><a href="#" onclick="return changeResultsNumberOption(this);">10</a></li>
+							<li><a href="#" onclick="return changeResultsNumberOption(this);">15</a></li>
+							<li><a href="#" onclick="return changeResultsNumberOption(this);">25</a></li>
 						</ul>
 					</div>
 					
