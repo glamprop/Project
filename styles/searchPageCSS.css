@@ -51,6 +51,10 @@ select {
 	border-radius: 3px;
 }
 
+.dropdown-menu {
+	width: 178px;
+}
+
 #main_container {	
 	/*width: 100%;*/
 	text-align: center;

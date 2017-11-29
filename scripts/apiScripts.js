@@ -13,7 +13,7 @@ function search() {
 		// Set Video Length option value
 		Settings.videoLength = $('#video-length-list li.active').children()[0].innerText;		
 		// Set Max Results option value
-		Settings.maxResults = $('#max-results-list li.active').children()[0].innerText;
+		Settings.resultsCount = $('#max-results-list li.active').children()[0].innerText;
 		
 		$.get(
 			"https://www.googleapis.com/youtube/v3/search", {
@@ -23,7 +23,7 @@ function search() {
 				key: 'AIzaSyBAN-71jVHKbUzBIuoQS_OVMb9mLctpEUU',
 				order: Settings.sortBy,
 				videoDuration: Settings.videoLength,
-				maxResults: Settings.maxResults
+				resultsCount: Settings.resultsCount
 			}
 		)
 		.done(function(data) {
@@ -61,7 +61,7 @@ function changePage(page){
 			key: 'AIzaSyBAN-71jVHKbUzBIuoQS_OVMb9mLctpEUU',
 			order: Settings.sortBy,
 			videoDuration: Settings.videoLength,
-			maxResults: Settings.maxResults
+			resultsCount: Settings.resultsCount
 		},
 		function(data) {
 			QueryData.setQueryJSON(data);
@@ -163,7 +163,7 @@ function renderButtons(q, prevPageToken, nextPageToken) {
 	$('#buttons_container').append(btnOutput);
 }
 
-function changeSortingOption(selectedAnchor) {
+/*function changeSortingOption(selectedAnchor) {
 	var a = $(selectedAnchor);
 	$.each(a.parent().siblings(), function(k, v) {
 		$(v).removeClass('active');
@@ -183,7 +183,7 @@ function changeVideoLengthOption(selectedAnchor) {
 	return false;
 }
 
-function changeResultsNumberOption(selectedAnchor) {
+function changeResultsCountOption(selectedAnchor) {
 	var a = $(selectedAnchor);
 	$.each(a.parent().siblings(), function(k, v) {
 		$(v).removeClass('active');
@@ -191,4 +191,4 @@ function changeResultsNumberOption(selectedAnchor) {
 	a.parent().addClass('active');
 	a.parent().parent().prev().html('Number of results: ' + a.text() + ' <span class="caret"></span>');
 	return false;
-}
+}*/

@@ -35,5 +35,10 @@
 		
 		//Init FancyBox
 		$('[data-fancybox]').fancybox();
+		
+		//Options
+		$('.sort-by-link').on('click', Settings.changeSortingOption);
+		$('.video-length-link').on('click', Settings.changeVideoLengthOption);
+		$('.max-results-link').on('click', Settings.changeResultsCountOption);
 	})
 })();
