@@ -1,5 +1,4 @@
-//Self-invoking function (a "Closure")
-//that only runs ONCE
+//Self-invoking function (a "Closure") that only runs ONCE
 (function() {
 	// Searchbar Handler
 	$(function() {
@@ -27,18 +26,21 @@
 				}, 400, function() {});
 			}
 		});
-
-		//Prevent form from being submitted
-		$('#search_form').submit(function(e) {
-			e.preventDefault();
-		});
 		
 		//Init FancyBox
 		$('[data-fancybox]').fancybox();
 		
-		//Options
+		//Search Options drop-down handlers
 		$('.sort-by-link').on('click', Settings.changeSortingOption);
 		$('.video-length-link').on('click', Settings.changeVideoLengthOption);
 		$('.max-results-link').on('click', Settings.changeResultsCountOption);
+				
+		// Wire submit handler on search form
+		$('#search-form').on('submit', api.search);
+		
+		//Prevent form from being submitted
+		$('#search-form').submit(function(e) {
+			e.preventDefault();
+		});
 	})
 })();

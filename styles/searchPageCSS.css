@@ -131,7 +131,7 @@ footer {
 	padding: 1rem;
 }
 
-#search_form {
+#search-form {
 	display: block;
 	margin-bottom: 15px;
 }
@@ -241,7 +241,7 @@ footer {
 	margin-top: 25px;
 }
 
-.paging_button {
+.paging-button {
 	background: #f4f4f4;
 	padding: 8px 13px;
 	border: #ccc 1px solid;

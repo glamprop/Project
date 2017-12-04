@@ -1,15 +1,7 @@
-var Settings = {//(function(sort, length, max) {
-	/*var sortBy = sort,
-		videoLength = length,
-		resultsCount = max;
-	*/
-	
+var Settings = {
 	changeSortingOption : function() {
 		var that = $(this);
 		this.sortBy = that.text();
-		/*$.each(that.parent().siblings(), function(i, v) {
-			$(v).removeClass('active');
-		});*/
 		$('.sort-by-link').parent().removeClass('active');
 		that.parent().addClass('active');
 		that.parent().parent().prev().html('Sort by: ' + that.text() + ' <span class="caret"></span>');
@@ -36,15 +28,5 @@ var Settings = {//(function(sort, length, max) {
 		this.resultsCount = that.text();
 		$('.dropdown').removeClass('open');
 		return false;
-}}/*;
-	
-	return {
-		sortBy						: sort,
-		videoLength					: length,
-		resultsCount					: max,
-		changeSortingOption			: changeSortingOption,
-		changeVideoLengthOption 	: changeVideoLengthOption,
-		changeResultsCountOption	: changeResultsCountOption		
 	}
-}*/
-//})('Relevance', 'Any', 5);
+}
