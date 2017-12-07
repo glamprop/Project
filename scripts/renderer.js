@@ -5,10 +5,10 @@ var Renderer = (function() {
 		// Build buttons HTML
 		var btnOutput = '<div class="button_container">';
 		if (prevPageToken) {
-			btnOutput += '<button id="prev-button" class="paging-button" data-token="' + prevPageToken + 
+			btnOutput += '<button id="prev-button" class="paging-button btn-lg btn-dark" data-token="' + prevPageToken + 
 						 '" data-query="' + q +'"' + 'onclick="Handlers.changePage(this);">Prev Page</button>';
 		}
-		btnOutput += '<button id="next-button" class="paging-button" data-token="' + nextPageToken + 
+		btnOutput += '<button id="next-button" class="paging-button btn-lg btn-dark" data-token="' + nextPageToken + 
 					 '" data-query="' + q +'"' + 'onclick="Handlers.changePage(this);">Next Page</button></div>';
 		// Render buttons
 		$('#buttons_container').append(btnOutput);
@@ -30,7 +30,7 @@ var Renderer = (function() {
 		Helper.getPublishedDate(item.snippet.publishedAt) + 
 		'</small></div></li><div class="clearfix"></div>';
 		// Render output
-		$('#search_results').append(output);
+		$('#search-results').append(output);
 		moreVideoInfo(item.id.videoId, index);
 	};
 	
@@ -56,11 +56,11 @@ var Renderer = (function() {
 					Helper.addDotSeparator(item.statistics.dislikeCount ? item.statistics.dislikeCount : ' ') +
 					'&nbsp;<img src="img/comment.jpg" width="16" height="16" /> ' + 
 					Helper.addDotSeparator(item.statistics.commentCount ? item.statistics.commentCount : ' ') + '</p>'+
-					'<span class="inline desc-par">Video description: ' + 
+					'<span class="collapse" id="detail-' + index.toString() + '">Video description: ' + //class="inline desc-par">Video description: ' + 
 					item.snippet.description +
-					'&nbsp;</span><a class="more-less move-up" onclick="Handlers.showMoreLess(this);">More</a>';
+					'&nbsp;</span><button class="btn btn-info" data-toggle="collapse" data-target="#detail-' + index.toString() + '">Description...  </button>'//</span><a class="more-less move-up" onclick="Handlers.showMoreLess(this);">More</a>';
 					// Show output
-					$('#search_results li')[index].children[1].innerHTML += output;
+					$('#search-results li')[index].children[1].innerHTML += output;
 				});
 			}
 		);

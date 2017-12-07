@@ -2,7 +2,7 @@
 var api = (function() {
 	var search = function() {
 		// Clear Results
-		$('#search_results').html('');
+		$('#search-results').html('');
 		$('#buttons_container').html('');
 
 		// Get Form Input

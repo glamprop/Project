@@ -100,9 +100,11 @@ header span {
 	color: #dd2826;
 }
 
+/*
 .btn {
 	width: 90px;
 }
+*/
 
 .label-span {
 	font-size:17px;
@@ -182,11 +184,11 @@ footer {
 	opacity: 0.9;
 }
 
-#search_results {
+#search-results {
 	padding: 0;
 }
 
-#search_results li {
+#search-results li {
 	padding: 10px 0;
 	border-bottom: 1px #ccc dotted;
 	list-style: none;

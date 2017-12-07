@@ -27,20 +27,20 @@
 			}
 		});
 		
-		//Init FancyBox
+		// Init FancyBox
 		$('[data-fancybox]').fancybox();
 		
-		//Search Options drop-down handlers
+		// Search Options drop-down handlers
 		$('.sort-by-link').on('click', Settings.changeSortingOption);
 		$('.video-length-link').on('click', Settings.changeVideoLengthOption);
 		$('.max-results-link').on('click', Settings.changeResultsCountOption);
 				
 		// Wire submit handler on search form
-		$('#search-form').on('submit', api.search);
-		
-		//Prevent form from being submitted
-		$('#search-form').submit(function(e) {
+		$('#search-form').on('submit', function(e) {
+			//prevent form from being submitted
 			e.preventDefault();
+			//execute search
+			api.search();
 		});
 	})
 })();

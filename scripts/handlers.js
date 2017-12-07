@@ -6,7 +6,7 @@ var Handlers = {
 		$('#query').val(QueryData.getQuery());
 
 		// Clear Results
-		$('#search_results').html('');
+		$('#search-results').html('');
 		$('#buttons_container').html('');
 
 		// Run GET Request on API
@@ -32,7 +32,7 @@ var Handlers = {
 	},
 		
 	// Shows/hides the video description
-	showMoreLess: function(elem){	
+	showMoreLess: function(elem){
 		if(elem.previousSibling.className == 'inline desc-par'){
 			$('a.more-less').not('.move-up').html('More').addClass('move-up');
 			$('.expanded').addClass('inline desc-par').removeClass('expanded');
@@ -40,7 +40,7 @@ var Handlers = {
 			elem.innerHTML='Less';
 			elem.className='more-less';
 		}
-		else{		
+		else{
 			$('.desc-par').removeClass('expanded');
 			elem.previousSibling.className='inline desc-par';
 			elem.innerHTML = 'More';
