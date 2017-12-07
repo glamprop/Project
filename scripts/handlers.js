@@ -24,9 +24,9 @@ var Handlers = {
 			function(data) {
 				QueryData.setQueryJSON(data);
 				$.each(data.items, function(i, item) {
-					Helper.renderResult(item, i);
+					Renderer.renderResult(item, i);
 				});
-				Helper.renderButtons(QueryData.getQuery(), QueryData.getPrevPageToken(), QueryData.getNextPageToken());
+				Renderer.renderButtons(QueryData.getQuery(), QueryData.getPrevPageToken(), QueryData.getNextPageToken());
 			}
 		);
 	},

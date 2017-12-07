@@ -1,4 +1,4 @@
-//
+// Single member object ("search")
 var api = (function() {
 	var search = function() {
 		// Clear Results
@@ -32,10 +32,10 @@ var api = (function() {
 				QueryData.setQueryData(q, data);
 				//for each item, render its output
 				$.each(data.items, function(i, item) {
-					Helper.renderResult(item, i);				
+					Renderer.renderResult(item, i);				
 				});
 				//render NEXT and PREVIOUS buttons
-				Helper.renderButtons(QueryData.getQuery(), QueryData.getPrevPageToken(), QueryData.getNextPageToken());
+				Renderer.renderButtons(QueryData.getQuery(), QueryData.getPrevPageToken(), QueryData.getNextPageToken());
 			})
 			.fail(function(e) {
 				Query.setQueryData(null, null);
