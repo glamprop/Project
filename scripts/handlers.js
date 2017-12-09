@@ -7,7 +7,7 @@ var Handlers = {
 
 		// Clear Results
 		$('#search-results').html('');
-		$('#buttons_container').html('');
+		$('#button-container').html('');
 
 		// Run GET Request on API
 		$.get(
@@ -46,6 +46,16 @@ var Handlers = {
 			elem.innerHTML = 'More';
 			elem.className = 'more-less move-up';
 		}
+	},	
+	
+	onCollapse: function() {
+		var that = $(this);
+		//if (that.attributes['aria-expanded'] && that.attributes['aria-expanded'].value == 'true')
+		if (that.innerText === 'Description...')
+			that.innerText = 'Hide...';
+		else
+			that.innerText = 'Description...';
 	}
+	
 
 };

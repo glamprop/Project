@@ -3,7 +3,7 @@ var api = (function() {
 	var search = function() {
 		// Clear Results
 		$('#search-results').html('');
-		$('#buttons_container').html('');
+		$('#button-container').html('');
 
 		// Get Form Input
 		var q = $('#query').val();
@@ -40,10 +40,11 @@ var api = (function() {
 			.fail(function(e) {
 				Query.setQueryData(null, null);
 				//error handling needed
+			})
+			.always(function() {
+				(console.log('Finished.'));
+				//$('.collapsible-desc').on('click', Handlers.onCollapse);
 			});
-			/*.always(function() {
-				(console.log('Finished'));
-			});*/		
 		}
 	};
 		

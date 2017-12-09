@@ -30,7 +30,7 @@ html {
 }
 
 body {
-	font-family: Patua One, san-serif;
+	/*font-family: Patua One, san-serif;*/
 	line-height: 1.6em;
 	color: #666;
 	/*background: #e1e1e1 url(../img/creampaper.png);*/
@@ -55,9 +55,9 @@ select {
 	width: 178px;
 }
 
-#main_container {	
+#main-container {	
 	/*width: 100%;*/
-	text-align: center;
+	/*text-align: center;*/
 	/*background: white;
 	margin: auto;*/
 }
@@ -100,6 +100,29 @@ header span {
 	color: #dd2826;
 }
 
+.btn-dark {
+	color:#fff;
+	border-color: #343a40;
+	background-color: #343a40;
+}
+
+.btn-light {
+	color: #111;
+	background-color: #d8d9da;
+	border-color: #d8d9da;
+}
+
+.btn-secondary {
+	color: #fff;
+	background-color: #6c757d;
+	border-color: #6c757d
+}
+
+.btn-secondary.focus, .btn-secondary:focus, .btn-secondary:hover {
+	color: silver;
+	text-decoration: none;
+}
+
 /*
 .btn {
 	width: 90px;
@@ -138,14 +161,18 @@ footer {
 	margin-bottom: 15px;
 }
 
-.searchBar_container {
+#searh-options {
+	text-align: center;
+}
+
+.searchBar-container {
 	display: block;
 	position: relative;
 	/*width: 90%;*/
 	margin: 0 auto;
 }
 
-.search_field {
+.search-field {
 	box-sizing: border-box;
 	display: block;
 	width: 45%;
@@ -164,7 +191,7 @@ footer {
 	box-shadow: inset 1px 2px rgba(0,0,0,0.1), 0 0 0 6px #f0f0f0;
 }
 
-#search_btn {
+#search-btn {
 	position: absolute;
 	/*right: 360px;*/
 	right: 55%;
@@ -179,7 +206,7 @@ footer {
 	background: transparent url(../img/search.png) top left no-repeat;
 }
 
-#search_btn: hover {
+#search-btn: hover {
 	filter: alpha(opacity=90);
 	opacity: 0.9;
 }
@@ -239,12 +266,13 @@ footer {
 	color: #dd2826;
 }
 
-.button_container {
+.button-container {
 	margin-top: 25px;
+	text-align: center;
 }
 
 .paging-button {
-	background: #f4f4f4;
+	/*background: #f4f4f4;*/
 	padding: 8px 13px;
 	border: #ccc 1px solid;
 	border-radius: 5px;

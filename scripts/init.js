@@ -3,7 +3,7 @@
 	// Searchbar Handler
 	$(function() {
 		var searchField = $('#query');
-		var icon = $('#search_btn');
+		var icon = $('#search-btn');
 
 		// Focus Event Handler
 		$(searchField).on('focus', function() {

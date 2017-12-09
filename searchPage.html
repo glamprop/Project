@@ -6,9 +6,12 @@
 		<title>OurTube</title>
 
 		<!--css-->
-		<link rel="stylesheet" href="styles/searchPageCSS.css">
 		<link rel="stylesheet" href="styles/jquery.fancybox.css">
-		<link rel="stylesheet" href="styles/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles/bootstrap-3.3.7/css/bootstrap.min.css">
+		<!--<link rel="stylesheet" href="styles/bootstrap-4.0.0/css/bootstrap.min.css">-->
+		<!-- Our custom CSS has to be called last, so that we can override some bootstrap rules -->
+		<link rel="stylesheet" href="styles/searchPageCSS.css">
+		
 		<!--javascript-->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.8.2/umd/popper.js"></script>-->
@@ -33,50 +36,51 @@
 			</header>
 		</div>	
 			<section>				
-				<div id="main_container" class="row">
-					<h3>Search Options: </h3>
-					<div class="dropdown" style="display: inline; width: 150px;">
-						<button style="width: 180px;" id="sort-by" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by: Relevance
-						<span class="caret"></span></button>
-						<ul id="sort-by-list" class="dropdown-menu">
-							<li class="active"><a href="#" class="sort-by-link">Relevance</a></li>
-							<li><a class="sort-by-link" href="#">Date</a></li>
-							<li><a class="sort-by-link" href="#">Rating</a></li>
-							<li><a class="sort-by-link" href="#">Views</a></li>
-						</ul>
+				<div id="main-container" class="row">
+					<div id="searh-options">
+						<h3>Search Options: </h3>
+						<div class="dropdown" style="display: inline; width: 150px;">
+							<button style="width: 180px;" id="sort-by" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Sort by: Relevance
+							<span class="caret"></span></button>
+							<ul id="sort-by-list" class="dropdown-menu">
+								<li class="active"><a href="#" class="sort-by-link">Relevance</a></li>
+								<li><a class="sort-by-link" href="#">Date</a></li>
+								<li><a class="sort-by-link" href="#">Rating</a></li>
+								<li><a class="sort-by-link" href="#">Views</a></li>
+							</ul>
+						</div>
+						<div class="dropdown" style="display: inline;">
+							<button style="width: 180px;" id="video-length" class="btn-secondary btn dropdown-toggle" type="button" data-toggle="dropdown">Video length: Any
+							<span class="caret"></span></button>
+							<ul id="video-length-list" class="dropdown-menu">
+								<li class="active"><a class="video-length-link" href="#">Any</a></li>
+								<li><a class="video-length-link" href="#">Short</a></li>
+								<li><a class="video-length-link" href="#">Medium</a></li>
+								<li><a class="video-length-link" href="#">Long</a></li>
+							</ul>
+						</div>
+						<div class="dropdown" style="display: inline;">
+							<button style="width: 180px;" id="results-count" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Number of results: 5
+							<span class="caret"></span></button>
+							<ul id="max-results-list" class="dropdown-menu">
+								<li class="active"><a class="max-results-link" href="#">5</a></li>
+								<li><a class="max-results-link" href="#">10</a></li>
+								<li><a class="max-results-link" href="#">15</a></li>
+								<li><a class="max-results-link" href="#">25</a></li>
+							</ul>
+						</div>
 					</div>
-					<div class="dropdown" style="display: inline;">
-						<button style="width: 180px;" id="video-length" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Video length: Any
-						<span class="caret"></span></button>
-						<ul id="video-length-list" class="dropdown-menu">
-							<li class="active"><a class="video-length-link" href="#">Any</a></li>
-							<li><a class="video-length-link" href="#">Short</a></li>
-							<li><a class="video-length-link" href="#">Medium</a></li>
-							<li><a class="video-length-link" href="#">Long</a></li>
-						</ul>
-					</div>
-					<div class="dropdown" style="display: inline;">
-						<button style="width: 180px;" id="results-count" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Number of results: 5
-						<span class="caret"></span></button>
-						<ul id="max-results-list" class="dropdown-menu">
-							<li class="active"><a class="max-results-link" href="#">5</a></li>
-							<li><a class="max-results-link" href="#">10</a></li>
-							<li><a class="max-results-link" href="#">15</a></li>
-							<li><a class="max-results-link" href="#">25</a></li>
-						</ul>
-					</div>
-					
-					<br /><br />
+					<br />
 					<form id="search-form" name="search-form">
-						<div class="searchBar_container">
-							<input type="search" id="query" class="search_field" placeholder="Search YouTube..." />
-							<input type="submit" name="search_btn" id="search_btn" value="" />
+						<div class="searchBar-container">
+							<input type="search" id="query" class="search-field" placeholder="Search YouTube..." />
+							<input type="submit" name="search-btn" id="search-btn" value="" />
 						</div>
 						<br />
 					</form>
 
 					<ul id="search-results"></ul>
-					<div id="buttons_container"></div>
+					<div id="button-container"></div>
 				</div>
 			</section>
 

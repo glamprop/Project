@@ -3,15 +3,15 @@ var Renderer = (function() {
 	// Renders NEXT and PREVIOUS buttons on the page.
 	var renderButtons = function(q, prevPageToken, nextPageToken) {
 		// Build buttons HTML
-		var btnOutput = '<div class="button_container">';
+		var btnOutput = '<div class="button-container">';
 		if (prevPageToken) {
-			btnOutput += '<button id="prev-button" class="paging-button btn-lg btn-dark" data-token="' + prevPageToken + 
+			btnOutput += '<button id="prev-button" class="paging-button btn-dark btn-lg" data-token="' + prevPageToken + 
 						 '" data-query="' + q +'"' + 'onclick="Handlers.changePage(this);">Prev Page</button>';
 		}
 		btnOutput += '<button id="next-button" class="paging-button btn-lg btn-dark" data-token="' + nextPageToken + 
 					 '" data-query="' + q +'"' + 'onclick="Handlers.changePage(this);">Next Page</button></div>';
 		// Render buttons
-		$('#buttons_container').append(btnOutput);
+		$('#button-container').append(btnOutput);
 	};
 	
 	// Outputs content from query results.
@@ -30,7 +30,8 @@ var Renderer = (function() {
 		Helper.getPublishedDate(item.snippet.publishedAt) + 
 		'</small></div></li><div class="clearfix"></div>';
 		// Render output
-		$('#search-results').append(output);
+		//$('#search-results').append(output);
+		document.getElementById('search-results').innerHTML += output;
 		moreVideoInfo(item.id.videoId, index);
 	};
 	
@@ -50,18 +51,18 @@ var Renderer = (function() {
 					Helper.convertISO8601ToSeconds(item.contentDetails.duration) +
 					'&nbsp;Views: ' + 
 					Helper.addDotSeparator(item.statistics.viewCount ? item.statistics.viewCount : ' ') +
-					'<br /><img src="img/like.png" width="20" height="20" /> ' + 
+					'<br /><img src="img/like.png" alt="Likes: " title="Likes" width="20" height="20" /> ' + 
 					Helper.addDotSeparator(item.statistics.likeCount ? item.statistics.likeCount : ' ') +
-					'&nbsp;<img src="img/dislike.png" width="18" height="18" /> ' + 
+					'&nbsp;<img src="img/dislike.png" alt="Dislikes: " title="Dislikes" width="18" height="18" /> ' + 
 					Helper.addDotSeparator(item.statistics.dislikeCount ? item.statistics.dislikeCount : ' ') +
-					'&nbsp;<img src="img/comment.jpg" width="16" height="16" /> ' + 
+					'&nbsp;<img src="img/comment.jpg" alt="Comments: " title="Comments" width="16" height="16" /> ' + 
 					Helper.addDotSeparator(item.statistics.commentCount ? item.statistics.commentCount : ' ') + '</p>'+
-					'<span class="collapse" id="detail-' + index.toString() + '">Video description: ' + //class="inline desc-par">Video description: ' + 
+					'<span class="inline desc-par">Video description: ' + //class="collapse" id="detail-' + index.toString() + '">Video description: ' + //class="inline desc-par">Video description: ' + 
 					item.snippet.description +
-					'&nbsp;</span><button class="btn btn-info" data-toggle="collapse" data-target="#detail-' + index.toString() + '">Description...  </button>'//</span><a class="more-less move-up" onclick="Handlers.showMoreLess(this);">More</a>';
+					'&nbsp;</span><a class="more-less move-up" onclick="Handlers.showMoreLess(this);">More</a>';//</span><button class="collapsible-desc btn btn-light" data-toggle="collapse" data-target="#detail-' + index.toString() + '">Description...  </button>'
 					// Show output
 					$('#search-results li')[index].children[1].innerHTML += output;
-				});
+				});				
 			}
 		);
 	};
