@@ -1,0 +1,28 @@
+.login {
+    width: 280px;
+    height: 158px;
+    text-align: center;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.invisible {
+    display: none;
+}
+
+#login-div {    
+    margin-left: auto; 
+    margin-right: auto;
+}
