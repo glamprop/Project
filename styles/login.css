@@ -26,3 +26,19 @@
     margin-left: auto; 
     margin-right: auto;
 }
+
+#fb-continue {
+	display: none;
+}
+
+.login-btn {
+	width: 107px;
+	height: 22px;
+}
+
+.fb-img {
+    top: 3px;
+    position: relative;
+    width: 16px;
+    height: 16px;
+}

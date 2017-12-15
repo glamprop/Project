@@ -1,6 +1,7 @@
-//var login = (function() {
+var Login = (function() {
+    var name, email;
     // This is called with the results from from FB.getLoginStatus().
-    function statusChangeCallback(response) {
+    var statusChangeCallback = function (response) {
         console.log(response);
         // The response object is returned with a status field that lets the
         // app know the current login status of the person.
@@ -9,9 +10,12 @@
         if (response.status === 'connected') {
             // Logged into your app and Facebook.
             //document.getElementById('status').innerHTML = '';
-            console.log('Connected via Facebook Login API.');
+            getFBInfo();
+			console.log('Connected via Facebook Login API.');
             $('#login-frame').attr('src', '');
-            $('#login-div').hide();            
+            $('#login-div').hide();          
+            $('#fb-button-span').hide();
+            $('#fb-continue').show();
         } 
         else {
             // The person is not logged into your app or we are unable to tell.
@@ -32,18 +36,19 @@
 //                '</fb:login-button>'
 //            );
         }
-    }
+    };
 
     // This function is called when someone finishes with the Login
     // Button.  See the onlogin handler attached to it in the sample
     // code below.
-    function checkLoginState() {
+    var checkLoginState = function () {
         FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
+			console.log(response);
         });
-    }
+    };
 
-    function checkSession(sessionKey) {
+    var checkSession = function (sessionKey) {
         var postData = {
             session_key: sessionKey
         };
@@ -56,31 +61,48 @@
             success: function(e) { console.log(e); },
             error: function(e) { console.log(e); }
         });
-    }
+    };
 
-    function login() {
+    var appLogin = function () {
         var postData = {
             username: $("#username").val(), 
             password: $("#password").val()
         };
         //console.log(postData);
 
-    //    $.ajax({
-    //        type: "POST",
-    //        url: "login.php",
-    //        data: postData,
-    //        success: function(e) { console.log(e); },
-    //        error: function(e) { alert(e); }
-    //    });
+        $.ajax({
+            type: "POST",
+            url: "login.php",
+            data: postData,
+            success: function(e) { console.log(e); },
+            error: function(e) { alert(e); }
+        });
 
-        FB.api('/me', { locale: 'en_US', fields: 'name, email' },
-          function(response) {
-            console.log(response.email);
-          }
+    };
+	
+	var getFBInfo = function () {
+		FB.api('/me', { locale: 'en_US', fields: 'name, email' },
+			function(response) {
+				name = response.name;
+				email = response.email;
+                $('#fb-continue-text').text('Continue as ' + name);
+			}
         );
-    }
-//    return {
-//        isLoggedIn : FB.getAuthResponse
-//        
-//    }
-//}());
+	};
+	
+    var getFBName = function () {
+        return name;        
+    };
+    
+    var getFBEmail = function () {
+        return email;        
+    };
+    
+	//Return public functions
+	return {
+		appLogin			: appLogin,
+		checkLoginState		: checkLoginState,
+        getFBName  			: getFBName,
+		getFBEmail			: getFBEmail
+	};
+})()	
