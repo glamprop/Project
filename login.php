@@ -101,10 +101,19 @@
 ?>
 <html>
     <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		
         <title>Login</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/login.css" />
+		
+		<!-- STYLES -->
+		<link rel="stylesheet" href="styles/bootstrap-3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles/login.css" />
+		
+		<!-- SCRIPTS -->
+		<!--<script type="text/javascript" src="https://smartlock.google.com/client" async="true" defer="true"></script>-->
         <script type="text/javascript" src="scripts/jquery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="scripts/login.js"></script>
     </head>
@@ -128,36 +137,57 @@
                 fjs.parentNode.insertBefore(js, fjs);               
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <div class="login centered">
-            <h1>OurTube</h1>
-            <h2>Login</h2>
-            <div id="login-form">
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <label class="left" for="username">Username</label>
-                    <input class="right" type="text" name="username" id="username" value="<?php echo (isset($_POST['username'])) ? $_POST['username'] : $f3->get('COOKIE.user'); ?>" />
-					<br /><br />
-                    <label class="left" for="password">Password</label>
-                    <input class="right" type="password" name="password" id="password" />
-                    <br /><br />
-                    <input type="submit" class="right login-btn" value="App Log in" />
-					<br /><br />
-                    <span ID="fb-button-span" class="right login-btn">
-                        <fb:login-button autologoutlink="false"
-                            scope="public_profile,email"
-                            login_text="Log in with FB" 
-                            onlogin="Login.checkLoginState();">
-                        </fb:login-button>
-                    </span>
-                    <span ID="fb-continue" class="right">
-                        ... or <a href="#" id="fb-continue-text"></a>
-                        <img class="fb-img" src="https://www.facebook.com/rsrc.php/yl/r/H3nktOa7ZMg.ico"/>
-                    </span>
-                </form>
-            </div>
-        </div>
-        <!--<div id="fb-login-conainer" class="invisible centered">
-            <div id="status"></div>
-            <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="true" data-auto-logout-link="true" data-use-continue-as="true"></div>
-        </div>-->
+        <div class="center-content">
+			<header>
+				<h1>Our<span class="red-font">Tube</span><!--<span class="rnb-black">~ YouTube Search</span></h1>-->
+			</header>			
+		</div>
+		
+		<div class="row">
+			<div id="login-form" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<h2 class="centered inherited-width">Login</h2>
+				<form class="centered inherited-width login-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="text" class="form-control" name="username" id="username" value="<?php /*echo (isset($_POST['username'])) ? $_POST['username'] : $f3->get('COOKIE.user');*/ ?>" />
+						<br />
+						<label for="password">Password</label>
+						<input type="password" class="form-control" name="password" id="password" />
+						<br />
+						<input type="submit" class="right btn btn-primary my-btn" value="App Log in" />						
+						<br /><br /><br />
+						<span ID="fb-button-span" class="right btn btn-primary my-btn">							
+							<fb:login-button autologoutlink="false"
+								scope="public_profile,email"
+								login_text="Log in with FB" 
+								onlogin="Login.checkLoginState();">
+							</fb:login-button>
+						</span>
+						<span ID="fb-continue" class="right">
+							... or <a href="#" id="fb-continue-text"></a>
+							<img class="fb-img" src="https://www.facebook.com/rsrc.php/yl/r/H3nktOa7ZMg.ico"/>
+						</span>
+					</div>
+				</form>
+			</div> <!-- login-form -->
+			<div id="signup-form" class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<h2 class="centered inherited-width">Sign up</h2>
+				<form class="centered inherited-width login-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					<div class="form-group">
+						<label for="signup-username">Username</label>
+						<input type="text" class="form-control" name="signup-username" id="signup-username" value="<?php /*echo (isset($_POST['username'])) ? $_POST['username'] : $f3->get('COOKIE.user');*/ ?>" />
+						<br />
+						<label for="signup-password">Password</label>
+						<input type="password" class="form-control" name="signup-password" id="signup-password" />
+						<br />
+						<label for="signup-confirm-password">Confirm password</label>
+						<input type="password" class="form-control" name="signup-confirm-password" id="signup-confirm-password" />
+						<br />
+						<input type="submit" class="right btn btn-primary" value="Sign up" />
+						<br />
+					</div>
+				</form>
+			</div> <!-- signup-form -->
+		</div> <!-- row -->
     </body>
 </html>

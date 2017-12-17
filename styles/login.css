@@ -1,13 +1,53 @@
+@font-face {
+    font-family: Circus;
+    src: url(../fonts/Circus.ttf);
+}
+
+@font-face {
+    font-family: RnB;
+    src: url(../fonts/Ribbons-and-banners.ttf);
+}
+
+@font-face {
+    font-family: ToyBlocks;
+    src: url(../fonts/K26ToyBlocks123.ttf);
+}
+
+@font-face {
+    font-family: PalmBeach;
+    src: url(../fonts/PalmBeach.ttf);
+}
+
+header h1 {
+	font-size: 56px;
+	font-family: ToyBlocks;
+	color: #000;
+	margin-bottom: 5px;
+}
+
+body {
+	padding: 10px;
+}
+
+/*
 .login {
     width: 280px;
     height: 158px;
     text-align: center;
 }
+*/
+
+.inherited-width {
+	width: inherit;
+}
 
 .centered {
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;    
+}
+
+.center-content {
+	text-align: center;
 }
 
 .left {
@@ -31,9 +71,9 @@
 	display: none;
 }
 
-.login-btn {
-	width: 107px;
-	height: 22px;
+.my-btn {
+	background-color: #3f5ba6;/* !important;	/* override bootstrap's btn-primary background color */
+	width: 128px;	
 }
 
 .fb-img {
@@ -41,4 +81,18 @@
     position: relative;
     width: 16px;
     height: 16px;
+}
+
+.rnb-black {
+	font-family: RnB;
+	color: black;
+}
+
+.red-font {
+	color: red;
+}
+
+.login-form {
+	background-color: #EEEEEE;
+	padding: 32px;
 }
