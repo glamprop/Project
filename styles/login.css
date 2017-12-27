@@ -29,14 +29,6 @@ body {
 	padding: 10px;
 }
 
-/*
-.login {
-    width: 280px;
-    height: 158px;
-    text-align: center;
-}
-*/
-
 .inherited-width {
 	width: inherit;
 }
@@ -72,13 +64,11 @@ body {
 }
 
 .my-btn {
-	background-color: #3f5ba6;/* !important;	/* override bootstrap's btn-primary background color */
+	background-color: #3f5ba6;
 	width: 128px;	
 }
 
 .fb-img {
-    top: 3px;
-    position: relative;
     width: 16px;
     height: 16px;
 }
@@ -95,4 +85,8 @@ body {
 .login-form {
 	background-color: #EEEEEE;
 	padding: 32px;
+}
+
+.error {
+	background-color: lightpink;
 }

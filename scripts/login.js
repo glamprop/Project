@@ -1,5 +1,15 @@
-var Login = (function() {
-    var name, email;
+var Login = (function() { 
+	$(document).ready(function() {
+		$('#login-form').on('submit', function(e) {
+			if (!Login.checkLoginInput())
+				e.preventDefault();
+		});
+		$('#signup-form').on('submit', function(e) {
+			if (!Login.checkSignupInput())
+				e.preventDefault();
+		});
+	});   
+	var name, email;
     // This is called with the results from from FB.getLoginStatus().
     var statusChangeCallback = function (response) {
         console.log(response);
@@ -13,9 +23,7 @@ var Login = (function() {
             getFBInfo();
 			console.log('Connected via Facebook Login API.');
             $('#login-frame').attr('src', '');
-            $('#login-div').hide();          
-            $('#fb-button-span').hide();
-            $('#fb-continue').show();
+            $('#login-div').hide();            
         } 
         else {
             // The person is not logged into your app or we are unable to tell.
@@ -85,9 +93,59 @@ var Login = (function() {
 			function(response) {
 				name = response.name;
 				email = response.email;
+				$('#fb-button-span').hide();
+				$('#fb-continue').show();
                 $('#fb-continue-text').text('Continue as ' + name);
 			}
         );
+	};
+	
+	var checkLoginInput = function () {
+		if ($('#username').val().trim() === '') {
+			$('#username').addClass('error');
+			return false;
+		}
+		else {
+			$('#username').removeClass('error');
+		}
+		if ($('#password').val().trim() === '') {
+			$('#password').addClass('error');
+			return false;
+		}
+		else {
+			$('#password').removeClass('error');
+		}
+		return true;
+	};
+	
+	var checkSignupInput = function () {
+		if ($('#signup-username').val().trim() === '') {
+			$('#signup-username').addClass('error');
+			return false;
+		}
+		else {
+			$('#signup-username').removeClass('error');
+		}
+		if ($('#signup-password').val().trim() === '') {
+			$('#signup-password').addClass('error');
+			return false;
+		}
+		else {
+			$('#signup-password').removeClass('error');
+		}
+		if ($('#signup-confirm-password').val().trim() === '') {
+			$('#signup-confirm-password').addClass('error');
+			return false;
+		}
+		else {
+			$('#signup-confirm-password').removeClass('error');
+		}
+		if ($('#signup-password').val() !== $('#signup-confirm-password').val()) {
+			$('#signup-password').addClass('error');
+			$('#signup-confirm-password').addClass('error');
+			return false;
+		}
+		return true;
 	};
 	
     var getFBName = function () {
@@ -102,7 +160,9 @@ var Login = (function() {
 	return {
 		appLogin			: appLogin,
 		checkLoginState		: checkLoginState,
+		checkSignupInput	: checkSignupInput,
+		checkLoginInput		: checkLoginInput,
         getFBName  			: getFBName,
 		getFBEmail			: getFBEmail
 	};
-})()	
+})();
