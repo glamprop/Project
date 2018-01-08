@@ -1,15 +1,28 @@
 var Login = (function() { 
 	$(document).ready(function() {
 		$('#login-form').on('submit', function(e) {
-			if (!Login.checkLoginInput())
-				e.preventDefault();
+			e.preventDefault();
+			if (!Login.checkLoginInput()) {
+				alert("Check Input!");
+			}
+			else {
+				appLogin();
+			}
 		});
 		$('#signup-form').on('submit', function(e) {
-			if (!Login.checkSignupInput())
-				e.preventDefault();
+			e.preventDefault();
+			if (!Login.checkSignupInput()) {
+				alert("Check Input!");
+			}
+			else {
+				appSignup();
+			}
 		});
 	});   
 	var name, email;
+	var searchURL = 'http://localhost:8080/M102/Project/searchPage.html';
+	//var searchURL = 'http://ourtube.byethost7.com/searchPage.html';
+	
     // This is called with the results from from FB.getLoginStatus().
     var statusChangeCallback = function (response) {
         console.log(response);
@@ -52,7 +65,6 @@ var Login = (function() {
     var checkLoginState = function () {
         FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
-			console.log(response);
         });
     };
 
@@ -73,8 +85,8 @@ var Login = (function() {
 
     var appLogin = function () {
         var postData = {
-            username: $("#username").val(), 
-            password: $("#password").val()
+            "username": $("#username").val(), 
+            "password": $("#password").val()
         };
         //console.log(postData);
 
@@ -82,10 +94,47 @@ var Login = (function() {
             type: "POST",
             url: "login.php",
             data: postData,
-            success: function(e) { console.log(e); },
-            error: function(e) { alert(e); }
+            success: function(e) { 
+				console.log(e); 
+				if (e.toLowerCase() === 'success') {
+					window.location.href = searchURL;
+				}
+				else {
+					$('#login-error-span').show().html(e);
+				}
+			},
+            error: function(e) {
+				$('#login-error-span').show().html(e);
+			}
         });
+    };
+    
+	var appSignup = function () {
+        var postData = {
+			"signup-email": $("#signup-email").val(),
+            "signup-username": $("#signup-username").val(), 
+            "signup-password": $("#signup-password").val(),
+			"signup-confirm-password": $("#signup-confirm-password").val()
+        };
+        //console.log(postData);
 
+        $.ajax({
+            type: "POST",
+            url: "login.php",
+            data: postData,
+            success: function(e) { 
+				console.log(e); 
+				if (e.toLowerCase() === 'success') {
+					window.location.href = searchPage;
+				}
+				else {
+					$('#signup-error-span').show().html(e);
+				}
+			},
+            error: function(e) { 
+				$('#signup-error-span').show().html(e);
+			}
+        });
     };
 	
 	var getFBInfo = function () {

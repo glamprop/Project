@@ -87,6 +87,10 @@ header span {
 	color: #dd2826;
 }
 
+.invisible {
+	visibility: hidden;
+}
+	
 .red-font {
 	color: red;
 }

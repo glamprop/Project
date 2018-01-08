@@ -6,10 +6,10 @@ var api = (function() {
 		$('#button-container').html('');
 
 		// Get Form Input
-		var q = $('#query').val();
+		var searchQuery = $('#query').val();
 
 		// Check if empty
-		if(q){
+		if(searchQuery){
 			// Set Sort By option value
 			Settings.sortBy = $('#sort-by-list li.active').children()[0].innerText;		
 			// Set Video Length option value
@@ -20,7 +20,7 @@ var api = (function() {
 			$.get(
 				"https://www.googleapis.com/youtube/v3/search", {
 					part: 'id, snippet',
-					q: q,
+					q: searchQuery,
 					type: 'video',
 					key: 'AIzaSyBAN-71jVHKbUzBIuoQS_OVMb9mLctpEUU',
 					order: Settings.sortBy,
@@ -29,7 +29,7 @@ var api = (function() {
 				}
 			)
 			.done(function(data) {
-				QueryData.setQueryData(q, data);
+				QueryData.setQueryData(searchQuery, data);
 				//for each item, render its output
 				$.each(data.items, function(i, item) {
 					Renderer.renderResult(item, i);				
@@ -38,7 +38,7 @@ var api = (function() {
 				Renderer.renderButtons(QueryData.getQuery(), QueryData.getPrevPageToken(), QueryData.getNextPageToken());
 			})
 			.fail(function(e) {
-				Query.setQueryData(null, null);
+				QueryData.setQueryData(null, null);
 				//error handling needed
 			})
 			.always(function() {

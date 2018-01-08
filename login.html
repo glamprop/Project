@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		
+        <title>Login</title>
+		<link rel="icon" type="image/png" href="img/search.png">
+		<!-- STYLES -->
+		<link rel="stylesheet" href="styles/bootstrap-3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles/login.css" />
+		
+		<!-- SCRIPTS -->
+        <script type="text/javascript" src="scripts/jquery/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="scripts/login.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+			/*$(document).ready(function() {
+				$('#login-form').on('submit', function(e) {
+					if (!Login.checkLoginInput())
+						e.preventDefault();
+				});
+				$('#signup-form').on('submit', function(e) {
+					if (!Login.checkSignupInput())
+						e.preventDefault();
+				});
+			});*/
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '213828052012831',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v2.8'
+                });
+                FB.AppEvents.logPageView();   
+                Login.checkLoginState();
+            };
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);               
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div class="center-content">
+			<header>
+				<h1>Our<span class="red-font">Tube</span><!--<span class="rnb-black">~ YouTube Search</span></h1>-->
+			</header>			
+		</div>
+		
+		<div class="row">
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<h2 class="centered inherited-width">Login</h2>
+				<form id="login-form" class="centered inherited-width login-form">
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="text" class="form-control" name="username" id="username" />
+						<br />
+						<label for="password">Password</label>
+						<input type="password" class="form-control" name="password" id="password" />
+						<br />
+						<span class="invisible-elem error-class" id="login-error-span"></span>
+						<input type="submit" id="login-submit" class="right btn btn-primary my-btn" value="App Log in" />						
+						<br /><br /><br />
+						<span ID="fb-button-span" class="right btn btn-primary my-btn">							
+							<fb:login-button autologoutlink="false"
+								scope="public_profile,email"
+								login_text="Log in with FB" 
+								onlogin="Login.checkLoginState();">
+							</fb:login-button>
+						</span>
+						<span ID="fb-continue" class="right">
+							... or <a href="#" id="fb-continue-text"></a>
+							<img class="fb-img" src="https://www.facebook.com/rsrc.php/yl/r/H3nktOa7ZMg.ico"/>
+						</span>
+					</div>
+				</form>
+			</div> <!-- login-form -->
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<h2 class="centered inherited-width">Create Account</h2>
+				<form id="signup-form" class="centered inherited-width login-form">
+					<div class="form-group">
+						<label for="signup-email">E-mail</label>
+						<input type="text" class="form-control" name="signup-email" id="signup-email" />
+						<br />
+						<label for="signup-username">Username</label>
+						<input type="text" class="form-control" name="signup-username" id="signup-username" />
+						<br />
+						<label for="signup-password">Password</label>
+						<input type="password" class="form-control" name="signup-password" id="signup-password" />
+						<br />
+						<label for="signup-confirm-password">Confirm password</label>
+						<input type="password" class="form-control" name="signup-confirm-password" id="signup-confirm-password" />
+						<br />
+						<span class="invisible-elem error-class" id="signup-error-span"></span>
+						<input type="submit" id="signup-submit" class="right btn btn-primary my-btn" value="Sign up" />
+						<br />
+					</div>
+				</form>
+			</div> <!-- signup-form -->
+		</div> <!-- row -->
+    </body>
+</html>

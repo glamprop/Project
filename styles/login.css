@@ -30,7 +30,7 @@ body {
 }
 
 .inherited-width {
-	width: inherit;
+	/*width: inherit;*/
 }
 
 .centered {
@@ -50,8 +50,14 @@ body {
     float: right;
 }
 
-.invisible {
+.invisible-elem {
     display: none;
+}
+
+.error-class {
+	color: red;
+	float: left;
+	font-weight: bold;
 }
 
 #login-div {    

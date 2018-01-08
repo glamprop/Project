@@ -18,17 +18,20 @@ var Renderer = (function() {
 	// This function is supposed to be called iteravitely.
 	var renderResult = function(item, index) {
 		// Build output string
-		var output = '<li><div class="list-left"><div class="in-image-label">' + 
+		// var output = '<li><div class="list-left"><div class="in-image-label">' + 
+		var output = '<div class="row"><div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"><div class="in-image-label">' + 
 		'WATCHED</div><a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/' + 
 		item.id.videoId + '"><img src="' 
 		+ item.snippet.thumbnails.high.url + 
-		'"></a></div><div class="list-right"><h3><a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/' + 
+		'"></a></div><div class="details col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"><h3><a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/' + 
 		item.id.videoId + '">' + 
 		item.snippet.title + '</a></h3>' +
+		'</div>'
 		'<small>By <span class="cTitle">' +
 		item.snippet.channelTitle + '</span> on ' + 
 		Helper.getPublishedDate(item.snippet.publishedAt) + 
-		'</small></div></li><div class="clearfix"></div>';
+		'</small></div></div><div class="clearfix"><br /><br /><br />';
+		//'</small></div></li><div class="clearfix"></div>';
 		// Render output
 		//$('#search-results').append(output);
 		document.getElementById('search-results').innerHTML += output;
@@ -61,7 +64,7 @@ var Renderer = (function() {
 					item.snippet.description +
 					'&nbsp;</span><a class="more-less move-up" onclick="Handlers.showMoreLess(this);">More</a>';//</span><button class="collapsible-desc btn btn-light" data-toggle="collapse" data-target="#detail-' + index.toString() + '">Description...  </button>'
 					// Show output
-					$('#search-results li')[index].children[1].innerHTML += output;
+					$('.details')[index].innerHTML += output;
 				});				
 			}
 		);
