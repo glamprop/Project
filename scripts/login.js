@@ -20,8 +20,6 @@ var Login = (function() {
 		});
 	});   
 	var name, email;
-	var searchURL = 'http://localhost:8080/M102/Project/searchPage.html';
-	//var searchURL = 'http://ourtube.byethost7.com/searchPage.html';
 	
     // This is called with the results from from FB.getLoginStatus().
     var statusChangeCallback = function (response) {
@@ -97,7 +95,7 @@ var Login = (function() {
             success: function(e) { 
 				console.log(e); 
 				if (e.toLowerCase() === 'success') {
-					window.location.href = searchURL;
+					window.location.href = Consts.SearchURL;
 				}
 				else {
 					$('#login-error-span').show().html(e);

@@ -2,11 +2,11 @@
     $f3 = require('fatfree-master/lib/base.php');
 	
 	/* Development DB conn */
-	$db_server = 'localhost';
+	/*$db_server = 'localhost';
 	$db_port = '3306';
 	$db_username = 'root';
 	$db_password = '666999';
-	$db_name = 'M102';
+	$db_name = 'M102';*/
 		
 	
 	/* Prodcution values */
@@ -14,8 +14,15 @@
 	$db_port = '3306';
 	$db_username = 'b7_21018122';
 	$db_password = 'm102ourtube';
-	$db_name = 'b7_21018122_M102';
-	*/
+	$db_name = 'b7_21018122_M102';*/
+	
+	/* Prodcution values */
+	$db_server = 'sotos.re.mysql';	
+	$db_port = '3306';
+	$db_username = 'sotos_re';
+	$db_password = 'RvvkaLWP8thSjTPRzL5E2ri2';
+	$db_name = 'sotos_re';
+	
 	
 	//echo $_POST[0].','.$_POST[1].','.$_POST[2].','.$_POST[3];
 	//exit();
