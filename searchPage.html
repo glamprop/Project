@@ -1,108 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 		<meta content="utf-8" http-equiv="encoding">
-		
-        <title>Login</title>
-		<link rel="icon" type="image/png" href="img/search.png">
-		<!-- STYLES -->
+		<title>OurTube</title>
+
+		<!--css-->
+		<link rel="stylesheet" href="styles/jquery.fancybox.css">
 		<link rel="stylesheet" href="styles/bootstrap-3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="styles/login.css" />
+		<!--<link rel="stylesheet" href="styles/bootstrap-4.0.0/css/bootstrap.min.css">-->
+		<!-- Our custom CSS has to be called last, so that we can override some bootstrap rules -->
+		<link rel="stylesheet" href="styles/searchPageCSS.css">
 		
-		<!-- SCRIPTS -->
-        <script type="text/javascript" src="scripts/jquery/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="scripts/consts.js"></script>
-        <script type="text/javascript" src="scripts/login.js"></script>
-    </head>
-    <body>
-        <script type="text/javascript">
-			/*$(document).ready(function() {
-				$('#login-form').on('submit', function(e) {
-					if (!Login.checkLoginInput())
-						e.preventDefault();
-				});
-				$('#signup-form').on('submit', function(e) {
-					if (!Login.checkSignupInput())
-						e.preventDefault();
-				});
-			});*/
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId      : '213828052012831',
-                    cookie     : true,
-                    xfbml      : true,
-                    version    : 'v2.8'
-                });
-                FB.AppEvents.logPageView();   
-                Login.checkLoginState();
-            };
-            (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "https://connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);               
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
-        <div class="center-content">
+		<!--javascript-->
+		<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+		<script type="text/javascript" src="scripts/jquery/jquery-3.2.1.min.js"></script>
+		<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.8.2/umd/popper.js"></script>-->
+		<script type="text/javascript" src="styles/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+		<!--<script type="text/javascript" src="styles/bootstrap-4.0.0/js/bootstrap.min.js"></script>-->
+		<script type="text/javascript" src="scripts/init.js"></script>
+		<script type="text/javascript" src="scripts/apiScripts.js"></script>
+		<script type="text/javascript" src="scripts/handlers.js"></script>
+		<script type="text/javascript" src="scripts/helper.js"></script>
+		<script type="text/javascript" src="scripts/settings.js"></script>
+		<script type="text/javascript" src="scripts/query.js"></script>
+		<script type="text/javascript" src="scripts/renderer.js"></script>
+		<!--fancybox initialize-->
+		<script type="text/javascript" src="scripts/jquery.fancybox.js"></script>
+	</head>
+
+	<body>
+		<div class="text-center">
 			<header>
-				<h1>Our<span class="red-font">Tube</span><!--<span class="rnb-black">~ YouTube Search</span></h1>-->
-			</header>			
-		</div>
-		
-		<div class="row">
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-				<h2 class="centered inherited-width">Login</h2>
-				<form id="login-form" class="centered inherited-width login-form">
-					<div class="form-group">
-						<label for="username">Username</label>
-						<input type="text" class="form-control" name="username" id="username" />
-						<br />
-						<label for="password">Password</label>
-						<input type="password" class="form-control" name="password" id="password" />
-						<br />
-						<span class="invisible-elem error-class" id="login-error-span"></span>
-						<input type="submit" id="login-submit" class="right btn btn-primary my-btn" value="App Log in" />						
-						<br /><br /><br />
-						<span ID="fb-button-span" class="right btn btn-primary my-btn">							
-							<fb:login-button autologoutlink="false"
-								scope="public_profile,email"
-								login_text="Log in with FB" 
-								onlogin="Login.checkLoginState();">
-							</fb:login-button>
-						</span>
-						<span ID="fb-continue" class="right">
-							... or <a href="#" id="fb-continue-text"></a>
-							<img class="fb-img" src="https://www.facebook.com/rsrc.php/yl/r/H3nktOa7ZMg.ico"/>
-						</span>
+				<h1>Our<span class="red-font">Tube</span> <span class="rnb-black">~ YouTube Search</span></h1>
+				<!--<p>Search all YouTube videos</p>-->
+			</header>
+		</div>	
+			<section>				
+				<div id="main-container" class="row">
+					<div id="searh-options">
+						<h3>Search Options: </h3>
+						<div class="dropdown" style="display: inline; width: 150px;">
+							<button style="width: 180px;" id="sort-by" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Sort by: Relevance
+							<span class="caret"></span></button>
+							<ul id="sort-by-list" class="dropdown-menu">
+								<li class="active"><a href="#" class="sort-by-link" data-value="relevance" ref="#">Relevance</a></li>
+								<li><a class="sort-by-link" data-value="date" href="#">Date</a></li>
+								<li><a class="sort-by-link" data-value="rating" href="#">Rating</a></li>
+								<li><a class="sort-by-link" data-value="viewcount" href="#">Views</a></li>
+							</ul>
+						</div>
+						<div class="dropdown" style="display: inline;">
+							<button style="width: 180px;" id="video-length" class="btn-secondary btn dropdown-toggle" type="button" data-toggle="dropdown">Video length: Any
+							<span class="caret"></span></button>
+							<ul id="video-length-list" class="dropdown-menu">
+								<li class="active"><a class="video-length-link" href="#">Any</a></li>
+								<li><a class="video-length-link" href="#">Short</a></li>
+								<li><a class="video-length-link" href="#">Medium</a></li>
+								<li><a class="video-length-link" href="#">Long</a></li>
+							</ul>
+						</div>
+						<div class="dropdown" style="display: inline;">
+							<button style="width: 180px;" id="results-count" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Number of results: 5
+							<span class="caret"></span></button>
+							<ul id="max-results-list" class="dropdown-menu">
+								<li class="active"><a class="max-results-link" href="#">5</a></li>
+								<li><a class="max-results-link" href="#">10</a></li>
+								<li><a class="max-results-link" href="#">15</a></li>
+								<li><a class="max-results-link" href="#">25</a></li>
+							</ul>
+						</div>
 					</div>
-				</form>
-			</div> <!-- login-form -->
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-				<h2 class="centered inherited-width">Create Account</h2>
-				<form id="signup-form" class="centered inherited-width login-form">
-					<div class="form-group">
-						<label for="signup-email">E-mail</label>
-						<input type="text" class="form-control" name="signup-email" id="signup-email" />
+					<br />
+					<form id="search-form" name="search-form">
+						<div class="searchBar-container">
+							<input type="search" id="query" class="search-field" placeholder="Search YouTube..." />
+							<input type="submit" name="search-btn" id="search-btn" value="" />
+						</div>
 						<br />
-						<label for="signup-username">Username</label>
-						<input type="text" class="form-control" name="signup-username" id="signup-username" />
-						<br />
-						<label for="signup-password">Password</label>
-						<input type="password" class="form-control" name="signup-password" id="signup-password" />
-						<br />
-						<label for="signup-confirm-password">Confirm password</label>
-						<input type="password" class="form-control" name="signup-confirm-password" id="signup-confirm-password" />
-						<br />
-						<span class="invisible-elem error-class" id="signup-error-span"></span>
-						<input type="submit" id="signup-submit" class="right btn btn-primary my-btn" value="Sign up" />
-						<br />
-					</div>
-				</form>
-			</div> <!-- signup-form -->
-		</div> <!-- row -->
-    </body>
+					</form>
+
+<!--					<ul id="search-results"></ul>-->
+					<div id="search-results"></div>
+					<div id="button-container"></div>
+				</div>
+			</section>
+
+			<footer>
+				<p>Copyright 2017</p>
+			</footer>		  		  
+	</body>
 </html>

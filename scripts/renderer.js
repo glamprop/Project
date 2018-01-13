@@ -20,7 +20,7 @@ var Renderer = (function() {
 		// Build output string
 		// var output = '<li><div class="list-left"><div class="in-image-label">' + 
 		var output = '<div class="row"><div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"><div class="in-image-label">' + 
-		'WATCHED</div><a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/' + 
+		'WATCHED</div><a data-fancybox data-type="iframe" href="https://www.youtube.com/embed/' + 
 		item.id.videoId + '"><img src="' 
 		+ item.snippet.thumbnails.high.url + 
 		'"></a></div><div class="details col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"><h3><a data-fancybox data-type="iframe" href="http://www.youtube.com/embed/' + 

@@ -19,7 +19,7 @@ var Handlers = {
 				key: 'AIzaSyBAN-71jVHKbUzBIuoQS_OVMb9mLctpEUU',
 				order: Settings.sortBy,
 				videoDuration: Settings.videoLength,
-				resultsCount: Settings.resultsCount
+				maxResults: Settings.resultsCount
 			},
 			function(data) {
 				QueryData.setQueryJSON(data);

@@ -11,11 +11,11 @@ var api = (function() {
 		// Check if empty
 		if(searchQuery){
 			// Set Sort By option value
-			Settings.sortBy = $('#sort-by-list li.active').children()[0].innerText;		
+			var sortBy = $('#sort-by-list li.active').children()[0].getAttribute('data-value');
 			// Set Video Length option value
-			Settings.videoLength = $('#video-length-list li.active').children()[0].innerText;		
-			// Set Max Results option value
-			Settings.resultsCount = $('#max-results-list li.active').children()[0].innerText;
+			var videoLength = $('#video-length-list li.active').children()[0].innerText;		
+			// Settings.resultsCount = $('#max-results-list li.active').children()[0].innerText;
+			var resultsCount = $('#max-results-list li.active').children()[0].innerText;
 			
 			$.get(
 				"https://www.googleapis.com/youtube/v3/search", {
@@ -23,9 +23,9 @@ var api = (function() {
 					q: searchQuery,
 					type: 'video',
 					key: 'AIzaSyBAN-71jVHKbUzBIuoQS_OVMb9mLctpEUU',
-					order: Settings.sortBy,
-					videoDuration: Settings.videoLength,
-					resultsCount: Settings.resultsCount
+					order: sortBy,
+					videoDuration: videoLength,
+					maxResults: resultsCount
 				}
 			)
 			.done(function(data) {
@@ -40,6 +40,7 @@ var api = (function() {
 			.fail(function(e) {
 				QueryData.setQueryData(null, null);
 				//error handling needed
+				console.log(e.responseText);
 			})
 			.always(function() {
 				(console.log('Finished.'));
