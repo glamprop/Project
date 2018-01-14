@@ -90,6 +90,14 @@ header span {
 .invisible {
 	visibility: hidden;
 }
+
+.inline {
+	dispaly: inline;
+}
+
+.order-dropdown {
+	width: 150px;
+}
 	
 .red-font {
 	color: red;
