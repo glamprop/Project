@@ -10,22 +10,16 @@ var api = (function() {
 
 		// Check if empty
 		if(searchQuery){
-			// Set Sort By option value
-			var sortBy = $('#sort-by-list li.active').children()[0].getAttribute('data-value');
-			// Set Video Length option value
-			var videoLength = $('#video-length-list li.active').children()[0].innerText;		
-			// Settings.resultsCount = $('#max-results-list li.active').children()[0].innerText;
-			var resultsCount = $('#max-results-list li.active').children()[0].innerText;
-			
+			saveSearchOptions();
 			$.get(
 				"https://www.googleapis.com/youtube/v3/search", {
 					part: 'id, snippet',
 					q: searchQuery,
 					type: 'video',
 					key: 'AIzaSyBAN-71jVHKbUzBIuoQS_OVMb9mLctpEUU',
-					order: sortBy,
-					videoDuration: videoLength,
-					maxResults: resultsCount
+					order: SearchOptions.getSortingOption(),
+					videoDuration: SearchOptions.getVideoLengthOption(),
+					maxResults: SearchOptions.getResultsCountOption()
 				}
 			)
 			.done(function(data) {

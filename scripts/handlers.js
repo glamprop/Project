@@ -17,9 +17,9 @@ var Handlers = {
 				pageToken: token,
 				type: 'video',
 				key: 'AIzaSyBAN-71jVHKbUzBIuoQS_OVMb9mLctpEUU',
-				order: Settings.sortBy,
-				videoDuration: Settings.videoLength,
-				maxResults: Settings.resultsCount
+				order: SearchOptions.getSortingOption(),
+				videoDuration: SearchOptions.getVideoLengthOption(),
+				maxResults: SearchOptions.getResultsCountOption()
 			},
 			function(data) {
 				QueryData.setQueryJSON(data);
